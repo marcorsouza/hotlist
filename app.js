@@ -10,7 +10,7 @@ var express = require('express'),
 
 db = mongoose.connect('mongodb://admin:admin@ds059888.mongolab.com:59888/hotlist');
 
-
+var port = process.env.PORT || 5000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.cookieParser('mtgo'));
@@ -25,6 +25,6 @@ load('models')
 	.then('routes')
 	.into(app);
 
-app.listen(3000,function(){
-	console.log('running in port 3000');
+app.listen(port,function(){
+	console.log('running in port '+port);
 })
