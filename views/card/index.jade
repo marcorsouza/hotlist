@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  h1= title
+
+  div.row
+   div.col-xs-8.col-xs-offset-2    
+    table.table.table-bordered
+     thead
+      tr
+       th.text-center Card Name
+       th.text-center Last Updated
+       th.text-center Actions
+      tbody
+       each card in cards
+        tr
+         td #{card.name}
+         td.text-center.col-xs-3 #{card.lastUpdated.getDate()+1}/#{card.lastUpdated.getMonth()+1}/#{card.lastUpdated.getFullYear()} #{card.lastUpdated.getHours()}:#{card.lastUpdated.getMinutes()}:#{card.lastUpdated.getSeconds()}  
+         td.actions.text-center.col-xs-4
+          a(class='btn btn-info btn-show-card' rel='#{card._id}') show
+          a(class='btn btn-danger btn-update-card' rel='#{card.mtgoLibraryId}') update

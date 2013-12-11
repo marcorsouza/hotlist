@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+  h1= title
+  p Card Name - #{card.name}
+  a(href='/cards/') voltar
+  div.row
+   div.col-xs-4.col-xs-offset-2
+    p sell
+    table.table.table-bordered
+     thead
+      tr
+       th.text-center Bot Name
+       th.text-center Qty
+       th.text-center Price
+      tbody
+       each price in card.sellPrices
+        include _price
+
+   div.col-xs-4
+    p buy
+    table.table.table-bordered
+     thead
+      tr
+       th.text-center Bot Name
+       th.text-center Qty
+       th.text-center Price
+     tbody
+      each price in card.buyPrices
+       tr
+        include _price
